@@ -1,6 +1,22 @@
 plugins {
     id 'java'
+    id "com.diffplug.spotless" version "5.12.1"
 }
 
-group 'org.example'
+group 'by.mark'
 version '1.0-SNAPSHOT'
+
+
+spotless {
+    java {
+        targetExclude '**/build/generated*/**'
+
+        importOrder('by.mark', '', 'javax', 'java', '\\#')
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+        lineEndings(LineEnding.UNIX)
+        encoding("UTF-8")
+        eclipse().configFile("$rootDir/config/eclipse-formatter.xml")
+    }
+}
