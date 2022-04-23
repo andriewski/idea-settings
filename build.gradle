@@ -6,7 +6,6 @@ plugins {
 group 'by.mark'
 version '1.0-SNAPSHOT'
 
-
 spotless {
     java {
         targetExclude '**/build/generated*/**'
